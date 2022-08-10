@@ -13,6 +13,7 @@ int main()
     Movie children1{ "어린이 1", Movie::CHILDRENS };
     Movie children2{ "어린이 2", Movie::CHILDRENS };
     Customer customer{ "고객" };
+	//테스트
 
     customer.addRental({ regular1, 2 });
     customer.addRental({ regular2, 3 });
