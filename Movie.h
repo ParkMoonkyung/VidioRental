@@ -10,7 +10,7 @@ public:
   static const int NEW_RELEASE = 1;
   static const int ADULT = 3;
 
- //Movie( const std::string& title, int priceCode = REGULAR );
+ Movie( const std::string& title, int rentday , int priceCode = REGULAR);
 
   Movie( const char* title, int rentday);
 
@@ -23,7 +23,7 @@ public:
   {
 	  return "비디오장르";
   }
-  virtual int GetRentalPrice() const 
+  virtual double GetRentalPrice() const
   {
 	  return 0;
   }
@@ -45,10 +45,10 @@ private:
   int rentDay;
 };
 
-//inline Movie::Movie(const std::string& title, int priceCode) :
-//	movieTitle(title),
-//	moviePriceCode(priceCode)
-//{}
+inline Movie::Movie(const std::string& title, int rentday, int priceCode ) :
+	movieTitle(title),
+	moviePriceCode(priceCode)
+{}
 
 inline Movie::Movie( const char* title, int rentday)
 {
@@ -77,7 +77,7 @@ public:
 	{
 		return "일반";
 	}
-	virtual int GetRentalPrice() const
+	virtual double GetRentalPrice() const
 	{
 		double thisAmount = 0.;
 		thisAmount += 2.;
@@ -101,7 +101,7 @@ public:
 	{
 		return "신작";
 	}
-	virtual int GetRentalPrice() const
+	virtual double GetRentalPrice() const
 	{
 		double thisAmount = 0.;
 		thisAmount += r_rentday * 3;
@@ -131,7 +131,7 @@ public:
 	{
 		return "어린이";
 	}
-	virtual int GetRentalPrice() const
+	virtual double GetRentalPrice() const
 	{
 		double thisAmount = 0.;
 		thisAmount += 1.5;
@@ -158,7 +158,7 @@ public:
 	{
 		return "EXAMPLE_GENRE";
 	}
-	virtual int GetRentalPrice() const
+	virtual double GetRentalPrice() const
 	{
 		//대여료가 기본료가 $1, 1일 초과 시 $1달러의 추가 요금이 붙지만, 최대 5일까지만 추가 요금이 붙습니다.
 		double thisAmount = 0.;
@@ -174,7 +174,8 @@ public:
 	{
 		//대여 포인트는 기본 1포인트, 대여기간이 2일 이상일 때 1포인트, 4일 이상이면 2포인트를 적립합니다.
 		int frequentRenterPoints = 0;
-		if (r_rentday >= 1 && r_rentday < 4) frequentRenterPoints++;
+		frequentRenterPoints++;
+		if (r_rentday >= 2 && r_rentday < 4) frequentRenterPoints++;
 		else if (r_rentday >= 4) frequentRenterPoints += 2;
 		return frequentRenterPoints;
 	}

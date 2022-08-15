@@ -18,11 +18,11 @@ public:
 		std::string title;
 		std::string genre;
 		int rentday;
-		int amount;
+		double amount;
 		int point;
 	};
 	
-	RECEIPT(std::string _customer, vector<RentalInfo> _rec, int _totalamount, int _totalpoint)
+	RECEIPT(std::string _customer, vector<RentalInfo> _rec, double _totalamount, int _totalpoint)
 	{
 		customer = _customer;
 		rec = _rec;
@@ -36,7 +36,7 @@ public:
 private :
 	std::string customer;
 	vector<RentalInfo> rec;
-	int totalamount;
+	double totalamount;
 	int totalpoint;
 };
 

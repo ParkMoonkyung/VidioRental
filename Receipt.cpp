@@ -4,7 +4,7 @@
 //영수증 출력물 형식 
 void RECEIPT::PrintReceipt()
 {
-	cout << "----------------------------------------" << "\n";
+	cout << "\n\n----------------------------------------" << "\n";
 	cout << "Video Rental Shop Receipt" << "\n\n";
 	cout << "Rental Record for " << customer << "\n\n";
 
