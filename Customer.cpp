@@ -2,6 +2,7 @@
 #include <sstream>
 #include <vector>
 #include "Customer.h"
+#include "Receipt.h"
 
 using std::ostringstream;
 using std::vector;
@@ -10,6 +11,7 @@ class RentFee
 {
 };
 
+//사용안함
 std::string Customer::statement()
 {
   double totalAmount = 0.;
@@ -83,38 +85,33 @@ std::string Customer::statement()
   return result.str();
 }
 
-std::string Customer::n_statement()
+
+///신규 
+void Customer::get_statement()
 {
 	double totalAmount = 0.;
 	int frequentRenterPoints = 0;
 
 	std::vector< Movie* >::iterator iter = customerRentals1.begin();
 	std::vector< Movie* >::iterator iter_end = customerRentals1.end();
-
-	// result will be returned by statement()
-	std::ostringstream result;
-	result << "Rental Record for " << getName() << "\n";
 	
-
+	//RECEIPT::
+	std::vector<RECEIPT::RentalInfo> retalinfo;
 	// Loop over customer's rentals
 	for (; iter != iter_end; ++iter) {
 		
 		double thisAmount = 0.;
 		Movie* each = *iter;
-		result << "Name is " << each->getTitle1() << "\n";
+		
 		totalAmount += each->GetRentalPrice();
 		frequentRenterPoints += each->GetRentalPoint();
-		result << "rentday is " << each->GetRentDay() << "\n";
-		result << "genre is " << each->GetVideoGubun() << "\n";
-		result << "amount is " << each->GetRentalPrice() << "\n";
-		result << "point is " << each->GetRentalPoint() << "\n\n";
+
+		 //제목, 장르, 대여기간, 가격, 포인트
+		RECEIPT::RentalInfo Receiptdaya = { each->getTitle1(), each->GetVideoGenre(),each->GetRentDay(), each->GetRentalPrice(), each->GetRentalPoint()};
+		retalinfo.push_back(Receiptdaya);
 	}
-//정르, 제목,대여기간, 가격
-
+	//고객명, 렌트정보, 총계금액, 총계포인트
+	RECEIPT * receipt = new RECEIPT(getName(), retalinfo, totalAmount, frequentRenterPoints);
+	receipt->setRecept();
 	
-	result << "\nAmount owed is " << totalAmount << "\n";
-	result << "You earned " << frequentRenterPoints
-		<< " frequent renter points";
-
-	return result.str();
 }

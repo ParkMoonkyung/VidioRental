@@ -21,7 +21,7 @@ public:
   // Generate a statement for the customer
   std::string statement();
 
-  std::string n_statement();
+  void get_statement();
 
 private:
   std::string customerName;

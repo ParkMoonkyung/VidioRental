@@ -19,15 +19,15 @@ public:
   std::string getTitle() const;
   std::string getTitle1();
 
-  virtual const char* GetVideoGubun() const
+  virtual const char* GetVideoGenre() const
   {
 	  return "비디오구분";
   }
-  virtual int GetRentalPrice() const // 대여값도 상태에 따라 다르므로, virtual function으로 만들었다.
+  virtual int GetRentalPrice() const 
   {
 	  return 0;
   }
-  virtual int GetRentalPoint() const // 대여값도 상태에 따라 다르므로, virtual function으로 만들었다.
+  virtual int GetRentalPoint() const 
   {
 	  int frequentRenterPoints = 0;
 	  frequentRenterPoints++;
@@ -73,7 +73,7 @@ public:
 		r_rentday = rentday;
 	}
 
-	virtual const char* GetVideoGubun() const
+	virtual const char* GetVideoGenre() const
 	{
 		return "일반";
 	}
@@ -97,7 +97,7 @@ public:
 		r_rentday = rentday;
 	}
 
-	virtual const char* GetVideoGubun() const
+	virtual const char* GetVideoGenre() const
 	{
 		return "신작";
 	}
@@ -127,7 +127,7 @@ public:
 		r_rentday = rentday;
 	}
 
-	virtual const char* GetVideoGubun() const
+	virtual const char* GetVideoGenre() const
 	{
 		return "어린이";
 	}
@@ -154,7 +154,7 @@ public:
 		r_rentday = rentday;
 	}
 
-	virtual const char* GetVideoGubun() const
+	virtual const char* GetVideoGenre() const
 	{
 		return "EXAMPLE_GENRE";
 	}

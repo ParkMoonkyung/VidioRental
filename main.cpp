@@ -6,22 +6,21 @@ using namespace std;
 
 int main()
 {
-	//Movie *movieList[5];
-	//movieList[0] = new REGULAR("new 일반",5);
+	//고객설정
 	Customer customer{ "고객" };
 	
-	Movie *movie = new REGULAR("new일반",5);
-	Movie *movie1 = new NEW_RELEASE("new신작", 3);
-	Movie *movie2 = new CHILDREN("new어린이", 2);
-	Movie *movie3 = new EXAMPLE_GENRE("new성인", 5);
+	//영화대여항목 설정
+	Movie *movie = new REGULAR("일반_movie",5);
+	Movie *movie1 = new NEW_RELEASE("신작_movie", 3);
+	Movie *movie2 = new CHILDREN("어린이_movie", 2);
+	Movie *movie3 = new EXAMPLE_GENRE("성인_movie", 5);
 	customer.addRental1(movie);
 	customer.addRental1(movie1);
 	customer.addRental1(movie2);
 	customer.addRental1(movie3);
 
-
-	
-	cout << customer.n_statement() << endl;
+	//영수증출력, 항목 상태값 변경
+	customer.get_statement();
 
 
 	//for (int i = 0; i < 1; i++) //모든 배열 출력
@@ -32,9 +31,6 @@ int main()
 
 	//	//customer.addRental({ p, 5 });
 	//}
-	
-	
-
 
  //   Movie regular1{ "일반 1", Movie::REGULAR };
  //   Movie regular2{ "일반 2", Movie::REGULAR };
