@@ -31,7 +31,7 @@ public:
 	}
 
 	///영수증출력
-	void setRecept();
+	void PrintReceipt();
 
 private :
 	std::string customer;

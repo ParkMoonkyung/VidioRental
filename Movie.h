@@ -21,7 +21,7 @@ public:
 
   virtual const char* GetVideoGenre() const
   {
-	  return "비디오구분";
+	  return "비디오장르";
   }
   virtual int GetRentalPrice() const 
   {

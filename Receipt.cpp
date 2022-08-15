@@ -2,7 +2,7 @@
 #include <iostream>
 
 //영수증 출력물 형식 
-void RECEIPT::setRecept()
+void RECEIPT::PrintReceipt()
 {
 	cout << "----------------------------------------" << "\n";
 	cout << "Video Rental Shop Receipt" << "\n\n";

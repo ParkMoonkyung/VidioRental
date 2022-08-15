@@ -112,6 +112,6 @@ void Customer::get_statement()
 	}
 	//°í°´¸í, ·»Æ®Á¤º¸, ÃÑ°è±Ý¾×, ÃÑ°èÆ÷ÀÎÆ®
 	RECEIPT * receipt = new RECEIPT(getName(), retalinfo, totalAmount, frequentRenterPoints);
-	receipt->setRecept();
+	receipt->PrintReceipt();
 	
 }
